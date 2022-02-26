@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   align-items: center;
   text-align: center;
   margin: 0px 50px;
+  padding: 15px;
 `;
 
 export const Left = styled.div`
