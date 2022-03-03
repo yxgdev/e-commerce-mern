@@ -25,8 +25,8 @@ const Navbar = () => {
         </Left>
         <Mid>
           <SearchContainer>
-            <SearchIcon />
             <SearchBar />
+            <SearchIcon />
           </SearchContainer>
         </Mid>
         <Right>
