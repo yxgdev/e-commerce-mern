@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import {
+  ButtonContainer,
   Carousel,
   CarouselItem,
+  InfoAndButtonsContainer,
+  InfoButton,
+  InfoContainer,
+  InfoTitle,
   Inner,
   SliderSwitchLeft,
   SliderSwitchRight,
@@ -52,9 +57,36 @@ const Slider = () => {
       />
       <Carousel>
         <Inner sliderIndex={sliderIndex}>
-          <CarouselItem bg={varietyTech}></CarouselItem>
-          <CarouselItem bg={nintendoSwitch}></CarouselItem>
-          <CarouselItem bg={digitalCamera}></CarouselItem>
+          <CarouselItem bg={varietyTech}>
+            <InfoAndButtonsContainer>
+              <InfoContainer>
+                <InfoTitle>All variety of Gadgets in 1 Shop</InfoTitle>
+                <p>Latest Gadgets in the World</p>
+                <InfoButton>SHOP</InfoButton>
+              </InfoContainer>
+              <ButtonContainer></ButtonContainer>
+            </InfoAndButtonsContainer>
+          </CarouselItem>
+          <CarouselItem bg={nintendoSwitch}>
+            <InfoAndButtonsContainer>
+              <InfoContainer>
+                <InfoTitle>All Your Favorite Gaming Gears</InfoTitle>
+                <p>Supports games of recent release</p>
+                <InfoButton>Explore</InfoButton>
+              </InfoContainer>
+              <ButtonContainer></ButtonContainer>
+            </InfoAndButtonsContainer>
+          </CarouselItem>
+          <CarouselItem bg={digitalCamera}>
+            <InfoAndButtonsContainer>
+              <InfoContainer>
+                <InfoTitle>All High End Camera Gears </InfoTitle>
+                <p>For passionate photographers</p>
+                <InfoButton>Explore</InfoButton>
+              </InfoContainer>
+              <ButtonContainer></ButtonContainer>
+            </InfoAndButtonsContainer>
+          </CarouselItem>
         </Inner>
       </Carousel>
     </Wrapper>

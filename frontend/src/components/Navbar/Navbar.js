@@ -20,7 +20,7 @@ const Navbar = () => {
       <Wrapper>
         <Left>
           <Brand>
-            <BrandName>BRAND</BrandName>
+            <BrandName>TECH & GAMES</BrandName>
           </Brand>
         </Left>
         <Mid>

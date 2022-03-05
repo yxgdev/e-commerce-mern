@@ -23,7 +23,7 @@ export const CarouselItem = styled.div`
   height: 100%;
   width: 100vw;
 
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url(${(props) => props.bg});
   background-size: 100vw 100vh;
 
@@ -31,11 +31,34 @@ export const CarouselItem = styled.div`
   padding: 0;
 `;
 
-export const InfoAndButtonsContainer = styled.div``;
+export const InfoAndButtonsContainer = styled.div`
+  height: 100%;
+`;
 
 export const ButtonContainer = styled.div``;
 
-export const InfoContainer = styled.div``;
+export const InfoContainer = styled.div`
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const InfoTitle = styled.h1`
+  margin-bottom: 10px;
+`;
+
+export const InfoButton = styled.button`
+  margin-top: 15px;
+  padding: 10px;
+  width: 120px;
+  border-radius: 0;
+  font-size: 20px;
+  border: none;
+  color: black;
+`;
 
 export const SliderSwitchLeft = styled.div`
   border-radius: 50%;
