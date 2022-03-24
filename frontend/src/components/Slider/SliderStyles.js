@@ -22,6 +22,7 @@ export const Inner = styled.div`
 export const CarouselItem = styled.div`
   height: 100%;
   width: 100vw;
+  position: relative;
 
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url(${(props) => props.bg});
@@ -66,8 +67,8 @@ export const SliderSwitchLeft = styled.div`
   opacity: 30%;
   height: 60px;
   width: 60px;
-  position: fixed;
-  top: 33vh;
+  position: absolute;
+  top: 25vh;
   left: 2vw;
   z-index: 3;
 `;
@@ -77,8 +78,8 @@ export const SliderSwitchRight = styled.div`
   opacity: 30%;
   height: 60px;
   width: 60px;
-  position: fixed;
-  top: 33vh;
+  position: absolute;
+  top: 25vh;
   right: 2vw;
   z-index: 3;
 `;

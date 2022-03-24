@@ -37,27 +37,24 @@ const Slider = () => {
       setSliderIndex(sliderIndex + change);
     }
   };
-  //   setInterval(() => {
-  //     onSliderSwitch("right");
-  //   }, 1000);
 
   return (
     <Wrapper>
-      <SliderSwitchLeft
-        direction="left"
-        onClick={() => {
-          onSliderSwitch("left");
-        }}
-      />
-      <SliderSwitchRight
-        direction="right"
-        onClick={() => {
-          onSliderSwitch("right");
-        }}
-      />
       <Carousel>
         <Inner sliderIndex={sliderIndex}>
           <CarouselItem bg={varietyTech}>
+            <SliderSwitchLeft
+              direction="left"
+              onClick={() => {
+                onSliderSwitch("left");
+              }}
+            />
+            <SliderSwitchRight
+              direction="right"
+              onClick={() => {
+                onSliderSwitch("right");
+              }}
+            />
             <InfoAndButtonsContainer>
               <InfoContainer>
                 <InfoTitle>All variety of Gadgets in 1 Shop</InfoTitle>
@@ -68,6 +65,18 @@ const Slider = () => {
             </InfoAndButtonsContainer>
           </CarouselItem>
           <CarouselItem bg={nintendoSwitch}>
+            <SliderSwitchLeft
+              direction="left"
+              onClick={() => {
+                onSliderSwitch("left");
+              }}
+            />
+            <SliderSwitchRight
+              direction="right"
+              onClick={() => {
+                onSliderSwitch("right");
+              }}
+            />
             <InfoAndButtonsContainer>
               <InfoContainer>
                 <InfoTitle>All Your Favorite Gaming Gears</InfoTitle>
@@ -78,6 +87,18 @@ const Slider = () => {
             </InfoAndButtonsContainer>
           </CarouselItem>
           <CarouselItem bg={digitalCamera}>
+            <SliderSwitchLeft
+              direction="left"
+              onClick={() => {
+                onSliderSwitch("left");
+              }}
+            />
+            <SliderSwitchRight
+              direction="right"
+              onClick={() => {
+                onSliderSwitch("right");
+              }}
+            />
             <InfoAndButtonsContainer>
               <InfoContainer>
                 <InfoTitle>All High End Camera Gears </InfoTitle>
