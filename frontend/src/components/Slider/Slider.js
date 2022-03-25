@@ -12,7 +12,8 @@ import {
   SliderSwitchRight,
   Wrapper,
 } from "./SliderStyles";
-
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 const digitalCamera =
   "https://images.unsplash.com/photo-1515042861662-e2a2e63e9647?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80";
 
@@ -48,13 +49,17 @@ const Slider = () => {
               onClick={() => {
                 onSliderSwitch("left");
               }}
-            />
+            >
+              <ArrowBackIosIcon />
+            </SliderSwitchLeft>
             <SliderSwitchRight
               direction="right"
               onClick={() => {
                 onSliderSwitch("right");
               }}
-            />
+            >
+              <ArrowForwardIosIcon />
+            </SliderSwitchRight>
             <InfoAndButtonsContainer>
               <InfoContainer>
                 <InfoTitle>All variety of Gadgets in 1 Shop</InfoTitle>
@@ -70,13 +75,17 @@ const Slider = () => {
               onClick={() => {
                 onSliderSwitch("left");
               }}
-            />
+            >
+              <ArrowBackIosIcon />
+            </SliderSwitchLeft>
             <SliderSwitchRight
               direction="right"
               onClick={() => {
                 onSliderSwitch("right");
               }}
-            />
+            >
+              <ArrowForwardIosIcon />
+            </SliderSwitchRight>
             <InfoAndButtonsContainer>
               <InfoContainer>
                 <InfoTitle>All Your Favorite Gaming Gears</InfoTitle>
@@ -92,13 +101,17 @@ const Slider = () => {
               onClick={() => {
                 onSliderSwitch("left");
               }}
-            />
+            >
+              <ArrowBackIosIcon />
+            </SliderSwitchLeft>
             <SliderSwitchRight
               direction="right"
               onClick={() => {
                 onSliderSwitch("right");
               }}
-            />
+            >
+              <ArrowForwardIosIcon />
+            </SliderSwitchRight>
             <InfoAndButtonsContainer>
               <InfoContainer>
                 <InfoTitle>All High End Camera Gears </InfoTitle>

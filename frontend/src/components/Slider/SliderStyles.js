@@ -71,6 +71,9 @@ export const SliderSwitchLeft = styled.div`
   top: 25vh;
   left: 2vw;
   z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 export const SliderSwitchRight = styled.div`
   border-radius: 50%;
@@ -82,4 +85,7 @@ export const SliderSwitchRight = styled.div`
   top: 25vh;
   right: 2vw;
   z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
