@@ -9,6 +9,7 @@ import {
   Right,
   SearchBar,
   SearchContainer,
+  SearchIconContainer,
   Wrapper,
 } from "./NavbarStyles";
 import SearchIcon from "@mui/icons-material/Search";
@@ -26,7 +27,9 @@ const Navbar = () => {
         <Mid>
           <SearchContainer>
             <SearchBar />
-            <SearchIcon />
+            <SearchIconContainer>
+              <SearchIcon />
+            </SearchIconContainer>
           </SearchContainer>
         </Mid>
         <Right>

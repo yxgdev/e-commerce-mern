@@ -30,9 +30,14 @@ export const SearchContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  width: 100%;
 `;
 export const SearchBar = styled.input`
   padding: 10px;
+  width: 70%;
+  margin-right: 5px;
+  margin-left: 60px;
 `;
 
 // user and cart buttons
@@ -45,4 +50,11 @@ export const ButtonsContainer = styled.div`
 export const Button = styled.div`
   cursor: pointer;
   margin: 0px 10px;
+`;
+
+export const SearchIconContainer = styled.button`
+  padding: 5px 15px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
 `;
