@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const app = express();
 
+const itemRoutes = require("./routes/itemRoutes.js");
+
 dotenv.config();
 
 app.use(express.json());
@@ -19,3 +21,5 @@ mongoose
     console.log("listening to port" + port);
   })
   .catch((err) => console.log(err));
+
+app.use("/items", itemRoutes);
