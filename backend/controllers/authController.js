@@ -51,7 +51,7 @@ const signUp = (req, res) => {
   });
 };
 
-const login = (req, res) => {
+const login = async (req, res) => {
   const { email, password } = req.body;
 
   // checking input exists
@@ -87,3 +87,5 @@ const login = (req, res) => {
     );
   });
 };
+
+module.exports = { signUp, login };
