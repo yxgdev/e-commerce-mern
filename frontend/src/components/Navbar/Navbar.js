@@ -4,6 +4,9 @@ import {
   BrandName,
   Button,
   ButtonsContainer,
+  DropDownButton,
+  DropDownContent,
+  DropDownContainer,
   Left,
   Mid,
   Right,
@@ -11,6 +14,7 @@ import {
   SearchContainer,
   SearchIconContainer,
   Wrapper,
+  DropDownLink,
 } from "./NavbarStyles";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
@@ -34,9 +38,15 @@ const Navbar = () => {
         </Mid>
         <Right>
           <ButtonsContainer>
-            <Button>
-              <PersonIcon />
-            </Button>
+            <DropDownContainer className="dropdown">
+              <DropDownButton>
+                <PersonIcon />
+              </DropDownButton>
+              <DropDownContent className="dropdown-content">
+                <DropDownLink>LOGIN</DropDownLink>
+                <DropDownLink>REGISTER</DropDownLink>
+              </DropDownContent>
+            </DropDownContainer>
             <Button>
               <ShoppingCartIcon />
             </Button>

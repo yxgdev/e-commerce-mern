@@ -51,6 +51,32 @@ export const Button = styled.div`
   cursor: pointer;
   margin: 0px 10px;
 `;
+export const DropDownContainer = styled.div`
+  cursor: pointer;
+  margin: 0px 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+`;
+export const DropDownButton = styled.div`
+  cursor: pointer;
+  margin: 0px 10px;
+`;
+
+export const DropDownContent = styled.div`
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  margin-top: 30px;
+`;
+
+export const DropDownLink = styled.a`
+  padding: 20px;
+
+  :hover {
+    background-color: #ddd;
+  }
+`;
 
 export const SearchIconContainer = styled.button`
   padding: 5px 15px;

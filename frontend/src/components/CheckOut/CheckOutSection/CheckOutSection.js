@@ -31,7 +31,7 @@ const CheckOutSection = () => {
           <OrderSummaryTitle>Order Summary</OrderSummaryTitle>
 
           <OrderSummaryChildContainer>
-            <OrderSummaryChildText>SubTotal Total</OrderSummaryChildText>
+            <OrderSummaryChildText>SubTotal </OrderSummaryChildText>
             <OrderSummaryChildPrice>$80.00</OrderSummaryChildPrice>
           </OrderSummaryChildContainer>
 
