@@ -56,7 +56,7 @@ const addItemToCart = async (req, res) => {
   }
 };
 
-const deleteItem = async (req, res) => {
+const deleteItemInCart = async (req, res) => {
   const userId = req.params.id;
   const productId = req.params.itemId;
 
@@ -78,3 +78,5 @@ const deleteItem = async (req, res) => {
     res.status(500).send("delte item error");
   }
 };
+
+module.exports = { getCartItems, addItemToCart, deleteItemInCart };
