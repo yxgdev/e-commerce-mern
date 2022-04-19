@@ -47,10 +47,6 @@ export const ButtonsContainer = styled.div`
   align-items: center;
 `;
 
-export const Button = styled.div`
-  cursor: pointer;
-  margin: 0px 10px;
-`;
 export const DropDownContainer = styled.div`
   cursor: pointer;
   margin: 0px 10px;
@@ -83,4 +79,26 @@ export const SearchIconContainer = styled.button`
   border: none;
   background-color: white;
   cursor: pointer;
+`;
+
+export const ShoppingCartContainer = styled.div`
+  position: relative;
+`;
+export const ShoppingCartCount = styled.div`
+  position: absolute;
+  bottom: 20px;
+  left: 25px;
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  height: 10px;
+  width: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+`;
+export const Button = styled.div`
+  cursor: pointer;
+  margin: 0px 10px;
 `;

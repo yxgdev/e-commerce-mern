@@ -15,6 +15,8 @@ import {
   SearchIconContainer,
   Wrapper,
   DropDownLink,
+  ShoppingCartCount,
+  ShoppingCartContainer,
 } from "./NavbarStyles";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
@@ -47,9 +49,12 @@ const Navbar = () => {
                 <DropDownLink>REGISTER</DropDownLink>
               </DropDownContent>
             </DropDownContainer>
-            <Button>
-              <ShoppingCartIcon />
-            </Button>
+            <ShoppingCartContainer>
+              <Button>
+                <ShoppingCartIcon />
+                <ShoppingCartCount>1</ShoppingCartCount>
+              </Button>
+            </ShoppingCartContainer>
           </ButtonsContainer>
         </Right>
       </Wrapper>
