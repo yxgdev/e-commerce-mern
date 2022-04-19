@@ -4,6 +4,7 @@ import Footer from "./components/Categories/Footer/Footer";
 import Location from "./components/Location/Location";
 import Navbar from "./components/Navbar/Navbar";
 import AllProductPage from "./components/Pages/AllProductPage";
+import CheckOutPage from "./components/Pages/CheckOutPage";
 import HomePage from "./components/Pages/HomePage";
 import LoginPage from "./components/Pages/LoginPage";
 import ProductPage from "./components/Pages/ProductPage";
@@ -17,7 +18,8 @@ function App() {
       {/* <ProductPage /> */}
       {/* <AllProductPage /> */}
       {/* <LoginPage /> */}
-      <RegisterPage />
+      {/* <RegisterPage /> */}
+      <CheckOutPage />
     </>
   );
 }
