@@ -51,6 +51,12 @@ const cartSlice = createSlice({
       state.items.push(action.payload);
       state.billAmount += 500;
     },
+    addedToCart: (state, action) => {
+      state.cart = action.payload;
+    },
+    deletedItemCart: (state, action) => {
+      state.isLoading = true;
+    },
   },
 });
 
