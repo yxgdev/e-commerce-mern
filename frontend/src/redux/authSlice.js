@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { resourceUsage } from "process";
 
 // actions
 export const loadUser = async (dispatch, getState) => {
@@ -63,3 +64,43 @@ export const login = (dispatch,user)=>{
     
   }
 }
+
+
+const authSlice = createSlice({
+  name:"auth",
+  initialState:{
+    token:localStorage.getItem('token'),
+    isAuthenticated:false,
+    isLoading:false,
+    user:null,
+    },
+    reducers:{
+      userLoading:(state,action)=>{
+        state.isLoading = true;
+      },
+      userLoaded:(state,action)=>{
+        state.isLoading = false;
+        state.isAuthenticated = true;
+        state.user = action.payload;
+      },
+      loginSuccess:(state,action)=>{
+        localStorage.setItem('token',action.payload.token)
+        state.isAuthenticated = true;
+        state.isLoading = false;
+      
+      },
+      registerSuccess:(state,action)=>{
+        localStorage.setItem('token',action.payload.token)
+        state.isAuthenticated = true;
+        state.isLoading = false;
+      
+      },
+      authError:(state,action)=>{
+        localStorage.removeItem('token')
+        state.token = null;
+        state.user = null,
+        state.isAuthenticated=null
+        state.isLoading=false
+      },
+    }
+})
