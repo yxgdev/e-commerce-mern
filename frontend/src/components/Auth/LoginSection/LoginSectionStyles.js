@@ -51,6 +51,10 @@ export const LoginButton = styled.button`
   border: none;
   padding: 20px;
   margin-top: 15px;
+  cursor: pointer;
+  :hover {
+    background-color: gold;
+  }
 `;
 
 export const AskAccountExist = styled.div`
@@ -64,7 +68,7 @@ export const AskAccountExist = styled.div`
 export const AskAccountExistText = styled.span`
   color: white;
 `;
-export const AskAccountExistAction = styled.a`
+export const AskAccountExistAction = styled.div`
   margin-right: 10px;
   text-align: right;
   cursor: pointer;

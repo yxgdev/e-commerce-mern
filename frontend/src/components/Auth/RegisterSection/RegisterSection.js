@@ -16,6 +16,7 @@ import {
 } from "./RegisterSectionStyles";
 import { register } from "../../../redux/authSlice";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const RegisterSection = () => {
   const [formData, setFormData] = useState({
@@ -36,6 +37,7 @@ const RegisterSection = () => {
     e.preventDefault();
     register(dispatch, formData);
   };
+
   return (
     <MainWrapper>
       <FormContainer>
@@ -69,7 +71,14 @@ const RegisterSection = () => {
             <LoginButton>REGISTER</LoginButton>
             <AskAccountExist>
               <AskAccountExistText>Have an Account?</AskAccountExistText>
-              <AskAccountExistAction>Sign In</AskAccountExistAction>
+              <AskAccountExistAction>
+                <Link
+                  to="/login"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  Sign In
+                </Link>
+              </AskAccountExistAction>
             </AskAccountExist>
           </FormWrapper>
         </Form>

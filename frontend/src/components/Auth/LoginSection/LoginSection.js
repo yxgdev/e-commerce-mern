@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   AskAccountExist,
   AskAccountExistAction,
@@ -25,7 +26,14 @@ const LoginSection = () => {
             <LoginButton>LOGIN</LoginButton>
             <AskAccountExist>
               <AskAccountExistText>Don't have an Account?</AskAccountExistText>
-              <AskAccountExistAction>Sign Up</AskAccountExistAction>
+              <AskAccountExistAction>
+                <Link
+                  to="/register"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  Sign Up
+                </Link>
+              </AskAccountExistAction>
             </AskAccountExist>
           </FormWrapper>
         </Form>

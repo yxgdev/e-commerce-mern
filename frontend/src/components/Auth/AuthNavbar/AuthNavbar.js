@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Brand,
   BrandName,
@@ -12,15 +13,15 @@ import {
   SearchIconContainer,
   Wrapper,
 } from "./AuthNavbarStyles";
-import SearchIcon from "@mui/icons-material/Search";
-import PersonIcon from "@mui/icons-material/Person";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
 const AuthNavbar = () => {
   return (
     <>
       <Wrapper>
         <Brand>
-          <BrandName>TECH & GAMES</BrandName>
+          <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+            <BrandName>TECH & GAMES</BrandName>
+          </Link>
         </Brand>
       </Wrapper>
     </>
