@@ -16,6 +16,9 @@ export const Mid = styled.div`
   flex: 1;
 `;
 export const Right = styled.div`
+  min-height: 100%;
+
+  height: 100%;
   flex: 1;
 `;
 
@@ -45,9 +48,12 @@ export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  min-height: 100%;
 `;
 
 export const DropDownContainer = styled.div`
+  display: none;
+
   cursor: pointer;
   margin: 0px 10px;
   position: relative;
@@ -58,16 +64,18 @@ export const DropDownContainer = styled.div`
 export const DropDownButton = styled.div`
   cursor: pointer;
   margin: 0px 10px;
+  min-height: 100%;
 `;
 
 export const DropDownContent = styled.div`
-  display: none;
+  visibility: hidden;
+  display: flex;
   flex-direction: column;
   position: absolute;
   margin-top: 30px;
 `;
 
-export const DropDownLink = styled.a`
+export const DropDownLink = styled.div`
   background-color: white;
   text-decoration: none;
   width: 100%;
@@ -98,6 +106,7 @@ export const SearchIconContainer = styled.button`
 
 export const ShoppingCartContainer = styled.div`
   position: relative;
+  margin-top: 3px;
 `;
 export const ShoppingCartCount = styled.div`
   position: absolute;

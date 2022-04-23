@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 // actions
@@ -15,6 +15,7 @@ export const loadUser = async (dispatch, getState) => {
 };
 // slice
 
+// works
 export const register = async (dispatch, user) => {
   const config = {
     headers: {
@@ -25,7 +26,7 @@ export const register = async (dispatch, user) => {
   const body = JSON.stringify(user);
 
   try {
-    const res = await axios.post("/auth/register", body, config);
+    const res = await axios.post("/auth/register", user, config);
     dispatch(registerSuccess(res.data));
   } catch (error) {
     console.log("register error");

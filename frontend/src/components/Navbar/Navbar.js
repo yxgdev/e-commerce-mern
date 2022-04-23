@@ -45,8 +45,8 @@ const Navbar = () => {
         <Right>
           <ButtonsContainer>
             <DropDownContainer className="dropdown">
-              <DropDownButton>
-                <PersonIcon />
+              <DropDownButton className="dropdown">
+                <PersonIcon style={{ height: "100%" }} />
               </DropDownButton>
               <DropDownContent className="dropdown-content">
                 <DropDownLink>
