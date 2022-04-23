@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { login } from "../../../redux/authSlice";
 import {
   AskAccountExist,
   AskAccountExistAction,
@@ -15,14 +17,40 @@ import {
 } from "./LoginSectionStyles";
 
 const LoginSection = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const dispatch = useDispatch();
+
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log(formData);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    login(dispatch, formData);
+  };
   return (
     <MainWrapper>
       <FormContainer>
-        <Form>
+        <Form onSubmit={onSubmit}>
           <FormWrapper>
             <FormTitle>LOGIN</FormTitle>
-            <EmailInput placeholder="Enter  your email" type="email" />
-            <PasswordInput placeholder="Enter your password" type="password" />
+            <EmailInput
+              placeholder="Enter  your email"
+              type="email"
+              name="email"
+              onChange={onChange}
+            />
+            <PasswordInput
+              placeholder="Enter your password"
+              type="password"
+              name="password"
+              onChange={onChange}
+            />
             <LoginButton>LOGIN</LoginButton>
             <AskAccountExist>
               <AskAccountExistText>Don't have an Account?</AskAccountExistText>

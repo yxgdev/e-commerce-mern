@@ -60,32 +60,31 @@ const login = async (req, res) => {
   }
 
   // checking if user exist or not
-  User.findOne({ email: email }).then(
-    (user) => !user && res.status(400).json({ msg: "User does not exist" })
-  );
+  User.findOne({ email: email }).then((user) => {
+    if (!user) return res.status(400).json({ msg: "User does not exist" });
+    bcrypt.compare(password, user.password).then((isMatch) => {
+      if (!isMatch) return res.status(400).json({ msg: "Wrong password" });
+
+      jwt.sign(
+        { id: user._id },
+        config.get("jwtsecret"),
+        { expiresIn: 3600 },
+        (err, token) => {
+          if (err) throw err;
+          res.json({
+            token,
+            user: {
+              id: user._id,
+              name: user.name,
+              email: user.email,
+            },
+          });
+        }
+      );
+    });
+  });
 
   //   Validate password if user exist
-
-  bcrypt.compare(password, user.password).then((isMatch) => {
-    if (!isMatch) return res.status(400).json({ msg: "Wrong password" });
-
-    jwt.sign(
-      { id: user._id },
-      config.get("jwtsecret"),
-      { expiresIn: 3600 },
-      (err, token) => {
-        if (err) throw err;
-        res.json({
-          token,
-          user: {
-            id: user._id,
-            name: user.name,
-            email: user.email,
-          },
-        });
-      }
-    );
-  });
 };
 
 module.exports = { signUp, login };

@@ -27,6 +27,7 @@ export const register = async (dispatch, user) => {
 
   try {
     const res = await axios.post("/auth/register", user, config);
+    console.log(res.data);
     dispatch(registerSuccess(res.data));
   } catch (error) {
     console.log("register error");
@@ -43,7 +44,9 @@ export const login = async (dispatch, user) => {
   const body = JSON.stringify(user);
 
   try {
-    const res = await axios.post("/api/login", body, config);
+    console.log(user);
+    const res = await axios.post("/auth/login", user, config);
+    console.log(res.data);
     dispatch(loginSuccess(res.data));
   } catch (error) {
     console.log("login error");
@@ -89,11 +92,17 @@ const authSlice = createSlice({
       localStorage.setItem("token", action.payload.token);
       state.isAuthenticated = true;
       state.isLoading = false;
+      console.log(action.payload);
+      state.user = action.payload.user;
     },
     registerSuccess: (state, action) => {
       localStorage.setItem("token", action.payload.token);
       state.isAuthenticated = true;
       state.isLoading = false;
+      state.user = action.payload.user;
+    },
+    logout: (state, action) => {
+      localStorage.removeItem("token");
     },
     authError: (state, action) => {
       localStorage.removeItem("token");
@@ -110,6 +119,7 @@ export const {
   userLoaded,
   addItem,
   loginSuccess,
+  logout,
   registerSuccess,
   authError,
 } = authSlice.actions;

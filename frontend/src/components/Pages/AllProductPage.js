@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 
 const AllProductPage = () => {
   const items = useSelector((state) => state.item.items);
-  console.log(items);
   return (
     <div>
       <Navbar />
