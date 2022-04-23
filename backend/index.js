@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const app = express();
 
 const itemRoutes = require("./routes/itemRoutes.js");
+const authRoutes = require("./routes/authRoutes.js");
 
 dotenv.config();
 
@@ -23,3 +24,4 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use("/items", itemRoutes);
+app.use("/auth", authRoutes);

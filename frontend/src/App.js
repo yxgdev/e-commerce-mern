@@ -18,8 +18,8 @@ function App() {
       {/* <ProductPage /> */}
       {/* <AllProductPage /> */}
       {/* <LoginPage /> */}
-      {/* <RegisterPage /> */}
-      <CheckOutPage />
+      <RegisterPage />
+      {/* <CheckOutPage /> */}
     </>
   );
 }
