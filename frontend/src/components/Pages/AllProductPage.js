@@ -3,13 +3,16 @@ import CategoriesBar from "../Categories/CategoriesBar/CategoriesBar";
 import Footer from "../Categories/Footer/Footer";
 import ItemsList from "../ItemsList/ItemsList";
 import Navbar from "../Navbar/Navbar";
+import { useSelector } from "react-redux";
 
 const AllProductPage = () => {
+  const items = useSelector((state) => state.item.items);
+  console.log(items);
   return (
     <div>
       <Navbar />
       <CategoriesBar />
-      <ItemsList />
+      <ItemsList items={items} />
       <Footer />
     </div>
   );
