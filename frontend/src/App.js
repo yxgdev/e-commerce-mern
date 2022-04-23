@@ -11,16 +11,26 @@ import ProductPage from "./components/Pages/ProductPage";
 import RegisterPage from "./components/Pages/RegisterPage";
 import Slider from "./components/Slider/Slider";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
-    <>
-      {/* <HomePage /> */}
-      {/* <ProductPage /> */}
-      {/* <AllProductPage /> */}
-      {/* <LoginPage /> */}
-      <RegisterPage />
-      {/* <CheckOutPage /> */}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" index element={<HomePage />} />
+        <Route path="/products/" element={<AllProductPage />} />
+        <Route path="/products/:id" element={<ProductPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/checkout" element={<CheckOutPage />} />
+
+        {/* <HomePage /> */}
+        {/* <ProductPage /> */}
+        {/* <AllProductPage /> */}
+        {/* <LoginPage /> */}
+        {/* <RegisterPage /> */}
+        {/* <CheckOutPage /> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

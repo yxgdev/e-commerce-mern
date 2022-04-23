@@ -28,7 +28,9 @@ const Footer = () => {
         </IconContainer>
       </SocialsContainer>
       <SocialsText>Follow Us, Stay Updated</SocialsText>
-      <CopyRightText>© 2022 TECH & GAMES. All Rights Reserved.</CopyRightText>
+      <CopyRightText>
+        © 2022 TECH & GAMES (YXG). All Rights Reserved.
+      </CopyRightText>
     </FooterContainer>
   );
 };

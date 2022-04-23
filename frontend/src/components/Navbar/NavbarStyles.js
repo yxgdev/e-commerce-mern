@@ -53,6 +53,7 @@ export const DropDownContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
+  z-index: 3;
 `;
 export const DropDownButton = styled.div`
   cursor: pointer;
@@ -67,8 +68,22 @@ export const DropDownContent = styled.div`
 `;
 
 export const DropDownLink = styled.a`
-  padding: 20px;
+  background-color: white;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
 
+  :hover {
+    background-color: #ddd;
+  }
+`;
+export const DropDownLinkButton = styled.button`
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
   :hover {
     background-color: #ddd;
   }

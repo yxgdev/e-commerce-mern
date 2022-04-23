@@ -17,10 +17,14 @@ import {
   DropDownLink,
   ShoppingCartCount,
   ShoppingCartContainer,
+  DropDownLinkButton,
 } from "./NavbarStyles";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <>
@@ -45,8 +49,30 @@ const Navbar = () => {
                 <PersonIcon />
               </DropDownButton>
               <DropDownContent className="dropdown-content">
-                <DropDownLink>LOGIN</DropDownLink>
-                <DropDownLink>REGISTER</DropDownLink>
+                <DropDownLink>
+                  <Link
+                    to="/login"
+                    style={{
+                      textDecoration: "none",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  >
+                    <DropDownLinkButton>LOGIN</DropDownLinkButton>
+                  </Link>
+                </DropDownLink>
+                <DropDownLink>
+                  <Link
+                    to="/register"
+                    style={{
+                      textDecoration: "none",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  >
+                    <DropDownLinkButton>REGISTER</DropDownLinkButton>
+                  </Link>
+                </DropDownLink>
               </DropDownContent>
             </DropDownContainer>
             <ShoppingCartContainer>
