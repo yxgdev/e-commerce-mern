@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Brand,
   BrandName,
@@ -31,8 +31,8 @@ const Navbar = () => {
   const auth = useSelector((state) => state.auth);
   const { token, isAuthenticated, isLoading, user } = auth;
   const dispatch = useDispatch();
-
   console.log(auth);
+
   return (
     <>
       <Wrapper>
@@ -62,7 +62,9 @@ const Navbar = () => {
                 {user && (
                   <DropDownLink>
                     <Link
-                      onClick={dispatch(logout())}
+                      onClick={() => {
+                        dispatch(logout());
+                      }}
                       to="/"
                       style={{
                         textDecoration: "none",

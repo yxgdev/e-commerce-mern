@@ -33,6 +33,7 @@ const LoginSection = () => {
     e.preventDefault();
     login(dispatch, formData);
   };
+
   return (
     <MainWrapper>
       <FormContainer>

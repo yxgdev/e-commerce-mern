@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import AuthNavbar from "../Auth/AuthNavbar/AuthNavbar";
@@ -8,7 +8,10 @@ import Footer from "../Categories/Footer/Footer";
 const LoginPage = () => {
   const auth = useSelector((state) => state.auth);
   const navigate = useNavigate();
-  auth.user && navigate("/");
+
+  useEffect(() => {
+    auth.user && navigate("/");
+  }, [auth]);
   return (
     <div>
       <AuthNavbar></AuthNavbar>

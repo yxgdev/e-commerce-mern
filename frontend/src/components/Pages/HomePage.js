@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import Categories from "../Categories/Categories";
 import Footer from "../Categories/Footer/Footer";
 import Location from "../Location/Location";
