@@ -59,6 +59,7 @@ export const InfoButton = styled.button`
   font-size: 20px;
   border: none;
   color: black;
+  cursor: pointer;
 `;
 
 export const SliderSwitchLeft = styled.div`
@@ -74,6 +75,7 @@ export const SliderSwitchLeft = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 export const SliderSwitchRight = styled.div`
   border-radius: 50%;
@@ -88,4 +90,5 @@ export const SliderSwitchRight = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;

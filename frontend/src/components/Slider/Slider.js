@@ -14,6 +14,8 @@ import {
 } from "./SliderStyles";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { Link } from "react-router-dom";
+
 const digitalCamera =
   "https://images.unsplash.com/photo-1515042861662-e2a2e63e9647?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80";
 
@@ -64,7 +66,9 @@ const Slider = () => {
               <InfoContainer>
                 <InfoTitle>All variety of Gadgets in 1 Shop</InfoTitle>
                 <p>Latest Gadgets in the World</p>
-                <InfoButton>SHOP</InfoButton>
+                <Link to="/products">
+                  <InfoButton>SHOP</InfoButton>
+                </Link>
               </InfoContainer>
               <ButtonContainer></ButtonContainer>
             </InfoAndButtonsContainer>
@@ -90,7 +94,9 @@ const Slider = () => {
               <InfoContainer>
                 <InfoTitle>All Your Favorite Gaming Gears</InfoTitle>
                 <p>Supports games of recent release</p>
-                <InfoButton>Explore</InfoButton>
+                <Link to="/products">
+                  <InfoButton>EXPLORE</InfoButton>
+                </Link>
               </InfoContainer>
               <ButtonContainer></ButtonContainer>
             </InfoAndButtonsContainer>
@@ -116,7 +122,9 @@ const Slider = () => {
               <InfoContainer>
                 <InfoTitle>All High End Camera Gears </InfoTitle>
                 <p>For passionate photographers</p>
-                <InfoButton>Explore</InfoButton>
+                <Link to="/products">
+                  <InfoButton>EXPLORE</InfoButton>
+                </Link>
               </InfoContainer>
               <ButtonContainer></ButtonContainer>
             </InfoAndButtonsContainer>
