@@ -30,9 +30,11 @@ const Navbar = () => {
     <>
       <Wrapper>
         <Left>
-          <Brand>
-            <BrandName>TECH & GAMES</BrandName>
-          </Brand>
+          <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+            <Brand>
+              <BrandName>TECH & GAMES</BrandName>
+            </Brand>
+          </Link>
         </Left>
         <Mid>
           <SearchContainer>
@@ -76,10 +78,15 @@ const Navbar = () => {
               </DropDownContent>
             </DropDownContainer>
             <ShoppingCartContainer>
-              <Button>
-                <ShoppingCartIcon />
-                <ShoppingCartCount>1</ShoppingCartCount>
-              </Button>
+              <Link
+                to="/checkout"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <Button>
+                  <ShoppingCartIcon />
+                  <ShoppingCartCount>1</ShoppingCartCount>
+                </Button>
+              </Link>
             </ShoppingCartContainer>
           </ButtonsContainer>
         </Right>
