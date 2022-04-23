@@ -5,12 +5,14 @@ export const SingleItemContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  width: 350px;
+  height: 350px;
   border: 1px solid black;
   padding: 20px;
 `;
 export const ItemImage = styled.img`
   max-width: 200px;
+  height: 130px;
 `;
 export const ItemName = styled.h2``;
 export const ItemPrice = styled.h2`
@@ -18,6 +20,8 @@ export const ItemPrice = styled.h2`
 `;
 
 export const ItemPriceNameContainer = styled.div`
+  margin-top: 15px;
+
   width: 100%;
   display: flex;
   justify-content: space-between;

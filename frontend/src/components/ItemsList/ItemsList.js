@@ -6,18 +6,21 @@ import {
 } from "./ItemsListStyles";
 import SingleItem from "./SingleItem/SingleItem";
 
+import { items } from "./itemsInItemsList";
+
 import iPhone from "../../images/iphone-13-pro-family-hero.png";
 const ItemsList = () => {
   return (
     <ItemsListContainer>
       <Wrapper>
         <ItemsContainerGrid>
-          <SingleItem image={iPhone} price={20.0} />
-          <SingleItem image={iPhone} price={20.0} />
-          <SingleItem image={iPhone} price={20.0} />
-          <SingleItem image={iPhone} price={20.0} />
-          <SingleItem image={iPhone} price={20.0} />
-          <SingleItem image={iPhone} price={20.0} />
+          {items.map((item) => (
+            <SingleItem
+              title={item.title}
+              image={item.image}
+              price={item.price}
+            />
+          ))}
         </ItemsContainerGrid>
       </Wrapper>
     </ItemsListContainer>

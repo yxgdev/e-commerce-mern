@@ -9,13 +9,13 @@ import {
   SingleItemContainer,
 } from "./SingleItemStyles";
 
-const SingleItem = ({ image, price }) => {
+const SingleItem = ({ title, image, price }) => {
   return (
     <div>
       <SingleItemContainer>
         <ItemImage src={image}></ItemImage>
         <ItemPriceNameContainer>
-          <ItemName>iPhone 13</ItemName>
+          <ItemName>{title}</ItemName>
           <ItemPrice>${price}</ItemPrice>
         </ItemPriceNameContainer>
         <ItemClickView>VIEW</ItemClickView>
