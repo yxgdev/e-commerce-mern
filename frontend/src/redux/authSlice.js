@@ -63,7 +63,13 @@ export const addToCart = async (dispatch, productId, user) => {
     console.log("add to cart action error");
   }
 };
-
+// delete item from cart
+export const deleteItemFromCart = async (dispatch, userId, itemId) => {
+  try {
+    const res = await axios.delete(`/cart/${userId}/${itemId}`);
+    dispatch(deletedItemCart(res.data));
+  } catch (error) {}
+};
 export const tokenConfig = (getState) => {
   //Get token from local storage
   const token = getState().auth.token;
@@ -105,12 +111,14 @@ const authAndCart = createSlice({
       state.isAuthenticated = true;
       state.isLoading = false;
       state.user = action.payload.user;
+      state.token = action.payload.token;
     },
     registerSuccess: (state, action) => {
       localStorage.setItem("token", action.payload.token);
       state.isAuthenticated = true;
       state.isLoading = false;
       state.user = action.payload.user;
+      state.token = action.payload.token;
     },
     logout: (state, action) => {
       localStorage.removeItem("token");
@@ -130,6 +138,10 @@ const authAndCart = createSlice({
       const user = action.payload;
       state.user = user.user;
     },
+    deletedItemCart: (state, action) => {
+      const user = action.payload;
+      state.user = user.user;
+    },
   },
 });
 
@@ -139,6 +151,7 @@ export const {
   loginSuccess,
   logout,
   addedToCart,
+  deletedItemCart,
   registerSuccess,
   authError,
 } = authAndCart.actions;

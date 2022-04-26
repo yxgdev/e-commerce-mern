@@ -60,25 +60,33 @@ const addItemToCart = async (req, res) => {
 };
 
 const deleteItemInCart = async (req, res) => {
-  const userId = req.params.id;
+  const userId = req.params.userId;
   const productId = req.params.itemId;
 
   try {
-    let cart = await Cart.findOne({ userId });
-    let itemIndex = cart.items.findIndex((p) => p.productId == productId);
+    let user = await User.findOne({ _id: userId });
+    let itemIndex = user.cart.findIndex((p) => p.productId == productId);
 
     if (itemIndex > -1) {
-      let productItem = cart.items[itemIndex];
-      cart.billAmount -= productItem.quantity * productItem.price;
+      let productItem = user.cart[itemIndex];
       // at position itemIndex, remove 1 items
-      cart.items.splice(itemIndex, 1);
+      user.cart.splice(itemIndex, 1);
     }
 
-    cart = await cart.save();
+    user = await user.save();
 
-    return res.status(201).send(cart);
+    console.log(user);
+
+    return res.status(201).json({
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        cart: user.cart,
+      },
+    });
   } catch (error) {
-    res.status(500).send("delte item error");
+    res.status(500).send("delete item error");
   }
 };
 

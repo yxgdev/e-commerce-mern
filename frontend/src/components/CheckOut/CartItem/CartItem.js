@@ -17,12 +17,19 @@ import {
 
 import iPhone from "../../../images/iphone-13-pro-family-hero.png";
 import { items } from "../../ItemsList/itemsInItemsList";
+import { useDispatch } from "react-redux";
+import { deleteItemFromCart } from "../../../redux/authSlice";
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, user }) => {
   const currentItem = items.find((i) => i.id == item.productId);
   const itemPicture = currentItem.image;
   const onChange = (e) => {
     // console.log(e.target.name, e.target.value);
+  };
+  const dispatch = useDispatch();
+
+  const onRemove = (userId, productId) => {
+    deleteItemFromCart(dispatch, userId, productId);
   };
   return (
     <CartItemContainer>
@@ -40,7 +47,7 @@ const CartItem = ({ item }) => {
         <ItemQuantitySelect
           name="quantity"
           onChange={onChange}
-          value={item.quantity}
+          defaultValue={item.quantity}
         >
           <ItemQuantityOption>1</ItemQuantityOption>
           <ItemQuantityOption>2</ItemQuantityOption>
@@ -52,7 +59,9 @@ const CartItem = ({ item }) => {
 
       <ItemPriceAndRemoveContainer>
         <ItemPrice>${item.price * item.quantity}</ItemPrice>
-        <ItemRemoveButton>REMOVE</ItemRemoveButton>
+        <ItemRemoveButton onClick={() => onRemove(user.id, item.productId)}>
+          REMOVE
+        </ItemRemoveButton>
       </ItemPriceAndRemoveContainer>
     </CartItemContainer>
   );

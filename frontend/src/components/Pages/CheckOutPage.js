@@ -16,7 +16,10 @@ const CheckOutPage = () => {
   return (
     <div>
       <Navbar />
-      <CheckOutSection cart={auth.user.cart} />
+      <CheckOutSection
+        cart={auth && auth.user ? auth.user.cart : null}
+        user={auth ? auth.user : null}
+      />
       <Footer />
     </div>
   );
