@@ -18,6 +18,9 @@ import {
 import iPhone from "../../../images/iphone-13-pro-family-hero.png";
 
 const CartItem = () => {
+  const onChange = (e) => {
+    // console.log(e.target.name, e.target.value);
+  };
   return (
     <CartItemContainer>
       <ItemPicContainer>
@@ -31,7 +34,7 @@ const CartItem = () => {
 
       <ItemQuantityContainer>
         <ItemQuantityTitle>Quantity</ItemQuantityTitle>
-        <ItemQuantitySelect>
+        <ItemQuantitySelect name="quantity" onChange={onChange}>
           <ItemQuantityOption>1</ItemQuantityOption>
           <ItemQuantityOption>2</ItemQuantityOption>
           <ItemQuantityOption>3</ItemQuantityOption>

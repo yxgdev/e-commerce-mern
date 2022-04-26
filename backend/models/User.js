@@ -20,6 +20,14 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  cart: {
+    type: [],
+    default: [],
+  },
+  cartTotal: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const User = mongoose.model("userecom", UserSchema);

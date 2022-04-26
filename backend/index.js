@@ -5,6 +5,7 @@ const app = express();
 
 const itemRoutes = require("./routes/itemRoutes.js");
 const authRoutes = require("./routes/authRoutes.js");
+const cartRoutes = require("./routes/cartRoutes.js");
 
 dotenv.config();
 
@@ -25,3 +26,4 @@ mongoose
 
 app.use("/items", itemRoutes);
 app.use("/auth", authRoutes);
+app.use("/cart", cartRoutes);

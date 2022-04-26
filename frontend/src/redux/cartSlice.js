@@ -4,7 +4,7 @@ import axios from "axios";
 export const getCart = async (dispatch, id) => {
   dispatch(cartLoading());
   try {
-    const res = await axios.get(`/api/cart/${id}`);
+    const res = await axios.get(`/cart/${id}`);
     const cart = res.data;
     dispatch(cartLoaded(cart));
   } catch (error) {
@@ -13,7 +13,7 @@ export const getCart = async (dispatch, id) => {
 };
 
 export const addToCart = async (dispatch, id, productId, quantity) => {
-  const res = await axios.post(`/api/${id}`);
+  const res = await axios.post(`/cart/${id}`);
 
   try {
     const newCart = res.data;
@@ -26,7 +26,7 @@ export const addToCart = async (dispatch, id, productId, quantity) => {
 
 export const deleteFromCart = async (dispatch, userId, itemId) => {
   try {
-    await axios.delete(`/api/cart/${userId}/${itemId}`);
+    await axios.delete(`/cart/${userId}/${itemId}`);
     dispatch(deletedItemCart());
   } catch (error) {}
 };

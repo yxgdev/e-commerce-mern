@@ -42,6 +42,7 @@ const signUp = (req, res) => {
                   id: user._id,
                   name: user.name,
                   email: user.email,
+                  cart: user.cart,
                 },
               });
             }
@@ -77,6 +78,7 @@ const login = async (req, res) => {
               id: user._id,
               name: user.name,
               email: user.email,
+              cart: user.cart,
             },
           });
         }
