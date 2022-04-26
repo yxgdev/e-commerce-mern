@@ -15,11 +15,10 @@ const ProductPage = () => {
   const itemId = parseInt(currentPath.pop());
   const item = items.find((item) => item.id == itemId);
 
-  console.log(item);
   return (
     <div>
       <Navbar />
-      <ProductItem />
+      <ProductItem item={item} />
       <Footer />
     </div>
   );

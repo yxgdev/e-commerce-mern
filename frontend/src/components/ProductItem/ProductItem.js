@@ -15,27 +15,24 @@ import iPhone from "../../images/iphone-13-pro-family-hero.png";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
 
-const ProductItem = () => {
+const ProductItem = ({ item }) => {
   const dispatch = useDispatch();
 
-  // const onAdd = () => {
-  //   addToCart(dispatch,)
-  // };
+  const onAdd = () => {
+    // addToCart(dispatch,)
+    alert("Item added to cart");
+  };
   return (
     <ComponentContainer>
       <Wrapper>
         <ItemContainer>
           <ItemImageContainer>
-            <ItemImage src={iPhone} />
+            <ItemImage src={item.image} />
           </ItemImageContainer>
           <ItemDesc>
-            <ItemDescTitle>iPhone 13 Pro</ItemDescTitle>
-            <ItemDescParagraph>
-              The latest iPhone. Bringing you the best of all worlds, whether
-              its for productivity, gaming, communication, we've got you all
-              covered. Let this phone be your latest phone for the year.
-            </ItemDescParagraph>
-            <AddToCartButton>Add to Cart</AddToCartButton>
+            <ItemDescTitle>{item.title}</ItemDescTitle>
+            <ItemDescParagraph>{item.desc}</ItemDescParagraph>
+            <AddToCartButton onClick={onAdd}>Add to Cart</AddToCartButton>
           </ItemDesc>
         </ItemContainer>
       </Wrapper>

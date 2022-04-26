@@ -15,11 +15,19 @@ export const ItemContainer = styled.div`
   align-items: center;
 `;
 
-export const ItemImageContainer = styled.div``;
-export const ItemImage = styled.img``;
+export const ItemImageContainer = styled.div`
+  width: 30vw;
+`;
+export const ItemImage = styled.img`
+  margin-left: 15vw;
+  width: 25vw;
+`;
 
 export const ItemDesc = styled.div`
-  width: 600px;
+  width: 69vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 export const ItemDescTitle = styled.h2`
   margin: 5px 0;
