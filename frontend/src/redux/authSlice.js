@@ -120,7 +120,6 @@ const authSlice = createSlice({
 export const {
   userLoading,
   userLoaded,
-  addItem,
   loginSuccess,
   logout,
   registerSuccess,

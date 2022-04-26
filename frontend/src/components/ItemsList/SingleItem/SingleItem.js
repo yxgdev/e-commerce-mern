@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   ItemClickAddCard,
   ItemClickView,
@@ -9,7 +10,12 @@ import {
   SingleItemContainer,
 } from "./SingleItemStyles";
 
-const SingleItem = ({ title, image, price }) => {
+const SingleItem = ({ id, title, image, price }) => {
+  let navigate = useNavigate();
+
+  const onViewClick = () => {
+    navigate(`/products/${id}`, { state: id });
+  };
   return (
     <div>
       <SingleItemContainer>
@@ -18,7 +24,7 @@ const SingleItem = ({ title, image, price }) => {
           <ItemName>{title}</ItemName>
           <ItemPrice>${price}</ItemPrice>
         </ItemPriceNameContainer>
-        <ItemClickView>VIEW</ItemClickView>
+        <ItemClickView onClick={onViewClick}>VIEW</ItemClickView>
         <ItemClickAddCard>ADD TO CART</ItemClickAddCard>
       </SingleItemContainer>
     </div>

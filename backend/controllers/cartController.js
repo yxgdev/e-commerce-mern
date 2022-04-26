@@ -14,9 +14,9 @@ const getCartItems = async (req, res) => {
   }
 };
 
+//  router.post("/cart/:id", addItemToCart);
 const addItemToCart = async (req, res) => {
   const userId = req.params.id;
-  const { productId, quantity } = req.body;
 
   try {
     let cart = await Cart.findOne({ userId });

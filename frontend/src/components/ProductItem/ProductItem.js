@@ -12,8 +12,15 @@ import {
 } from "./ProductItemStyles";
 
 import iPhone from "../../images/iphone-13-pro-family-hero.png";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cartSlice";
 
 const ProductItem = () => {
+  const dispatch = useDispatch();
+
+  // const onAdd = () => {
+  //   addToCart(dispatch,)
+  // };
   return (
     <ComponentContainer>
       <Wrapper>
