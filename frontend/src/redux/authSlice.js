@@ -33,7 +33,7 @@ export const register = async (dispatch, user) => {
     console.log("register error");
   }
 };
-
+//works
 export const login = async (dispatch, user) => {
   const config = {
     headers: {
@@ -44,12 +44,23 @@ export const login = async (dispatch, user) => {
   const body = JSON.stringify(user);
 
   try {
-    console.log(user);
     const res = await axios.post("/auth/login", user, config);
-    console.log(res.data);
     dispatch(loginSuccess(res.data));
   } catch (error) {
     console.log("login error");
+  }
+};
+
+// add item to cart
+export const addToCart = async (dispatch, productId, user) => {
+  const res = await axios.post(`/cart/${productId}`, user);
+
+  try {
+    const newCart = res.data;
+
+    dispatch(addedToCart(newCart));
+  } catch (error) {
+    console.log("add to cart action error");
   }
 };
 
@@ -71,13 +82,14 @@ export const tokenConfig = (getState) => {
   return config;
 };
 
-const authSlice = createSlice({
-  name: "auth",
+const authAndCart = createSlice({
+  name: "authAndCart",
   initialState: {
     token: localStorage.getItem("token"),
     isAuthenticated: false,
     isLoading: false,
     user: null,
+    billAmount: 0,
   },
   reducers: {
     userLoading: (state, action) => {
@@ -92,7 +104,6 @@ const authSlice = createSlice({
       localStorage.setItem("token", action.payload.token);
       state.isAuthenticated = true;
       state.isLoading = false;
-      console.log(action.payload);
       state.user = action.payload.user;
     },
     registerSuccess: (state, action) => {
@@ -114,6 +125,11 @@ const authSlice = createSlice({
       state.isAuthenticated = null;
       state.isLoading = false;
     },
+    // cart related starts here -------
+    addedToCart: (state, action) => {
+      const user = action.payload;
+      state.user = user.user;
+    },
   },
 });
 
@@ -122,7 +138,8 @@ export const {
   userLoaded,
   loginSuccess,
   logout,
+  addedToCart,
   registerSuccess,
   authError,
-} = authSlice.actions;
-export default authSlice.reducer;
+} = authAndCart.actions;
+export default authAndCart.reducer;

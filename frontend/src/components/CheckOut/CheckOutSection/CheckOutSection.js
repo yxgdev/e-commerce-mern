@@ -15,16 +15,19 @@ import {
   OrderSummaryTotalPrice,
 } from "./CheckOutSectionStyles";
 
-const CheckOutSection = () => {
+const CheckOutSection = ({ cart }) => {
   return (
     <MainWrapper>
       <CheckOutTitle>YOUR CART</CheckOutTitle>
       <CheckoutContainer>
         <CartItemsList>
+          {cart.map((item) => (
+            <CartItem key={item.productId} item={item} />
+          ))}
+          {/* <CartItem />
           <CartItem />
           <CartItem />
-          <CartItem />
-          <CartItem />
+          <CartItem /> */}
         </CartItemsList>
 
         <OrderSummarySection>

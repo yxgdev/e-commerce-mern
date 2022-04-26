@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const CartItemContainer = styled.div`
   display: flex;
   background-color: white;
+  align-items: center;
+  max-height: 25vh;
+  min-height: 25vh;
 `;
 export const ItemPicContainer = styled.div`
   width: 25%;
@@ -42,7 +45,9 @@ export const ItemPriceAndRemoveContainer = styled.div`
   display: flex;
   align-items: center;
 `;
-export const ItemPrice = styled.h2``;
+export const ItemPrice = styled.h2`
+  width: 120px;
+`;
 export const ItemRemoveButton = styled.button`
   background: brown;
   color: white;

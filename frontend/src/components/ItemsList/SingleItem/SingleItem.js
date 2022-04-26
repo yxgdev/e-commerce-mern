@@ -1,5 +1,7 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { addToCart } from "../../../redux/authSlice";
 import {
   ItemClickAddCard,
   ItemClickView,
@@ -16,6 +18,14 @@ const SingleItem = ({ id, title, image, price }) => {
   const onViewClick = () => {
     navigate(`/products/${id}`, { state: id });
   };
+
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  const onAdd = (productId) => {
+    addToCart(dispatch, productId, auth.user);
+    alert("Item added to cart" + productId);
+  };
   return (
     <div>
       <SingleItemContainer>
@@ -25,7 +35,9 @@ const SingleItem = ({ id, title, image, price }) => {
           <ItemPrice>${price}</ItemPrice>
         </ItemPriceNameContainer>
         <ItemClickView onClick={onViewClick}>VIEW</ItemClickView>
-        <ItemClickAddCard>ADD TO CART</ItemClickAddCard>
+        <ItemClickAddCard onClick={() => onAdd(id)}>
+          ADD TO CART
+        </ItemClickAddCard>
       </SingleItemContainer>
     </div>
   );

@@ -30,8 +30,8 @@ import { logout } from "../../redux/authSlice";
 const Navbar = () => {
   const auth = useSelector((state) => state.auth);
   const { token, isAuthenticated, isLoading, user } = auth;
+
   const dispatch = useDispatch();
-  console.log(auth);
 
   return (
     <>
@@ -114,7 +114,9 @@ const Navbar = () => {
               >
                 <Button>
                   <ShoppingCartIcon />
-                  <ShoppingCartCount>1</ShoppingCartCount>
+                  {user && user.cart.length > 0 && (
+                    <ShoppingCartCount>{user.cart.length}</ShoppingCartCount>
+                  )}
                 </Button>
               </Link>
             </ShoppingCartContainer>

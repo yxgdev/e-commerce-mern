@@ -12,15 +12,16 @@ import {
 } from "./ProductItemStyles";
 
 import iPhone from "../../images/iphone-13-pro-family-hero.png";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../redux/authSlice";
 
 const ProductItem = ({ item }) => {
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
-  const onAdd = () => {
-    // addToCart(dispatch,)
-    alert("Item added to cart");
+  const onAdd = (productId) => {
+    addToCart(dispatch, productId, auth.user);
+    alert("Item added to cart" + productId);
   };
   return (
     <ComponentContainer>
@@ -30,9 +31,15 @@ const ProductItem = ({ item }) => {
             <ItemImage src={item.image} />
           </ItemImageContainer>
           <ItemDesc>
-            <ItemDescTitle>{item.title}</ItemDescTitle>
+            <ItemDescTitle>{item.id}</ItemDescTitle>
             <ItemDescParagraph>{item.desc}</ItemDescParagraph>
-            <AddToCartButton onClick={onAdd}>Add to Cart</AddToCartButton>
+            <AddToCartButton
+              onClick={() => {
+                onAdd(item.id);
+              }}
+            >
+              Add to Cart
+            </AddToCartButton>
           </ItemDesc>
         </ItemContainer>
       </Wrapper>

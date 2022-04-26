@@ -13,7 +13,6 @@ const itemSlice = createSlice({
   },
   reducers: {
     changeCategory: (state, action) => {
-      console.log(action);
       switch (action.payload) {
         case 0:
           state.items = items;

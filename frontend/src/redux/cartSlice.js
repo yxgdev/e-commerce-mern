@@ -12,8 +12,8 @@ export const getCart = async (dispatch, id) => {
   }
 };
 
-export const addToCart = async (dispatch, id, productId, quantity) => {
-  const res = await axios.post(`/cart/${id}`);
+export const addToCart = async (dispatch, productId, user) => {
+  const res = await axios.post(`/cart/${productId}`, user);
 
   try {
     const newCart = res.data;
@@ -35,7 +35,7 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: {
     isLoading: true,
-    items: [],
+    cart: [],
     billAmount: 0,
   },
   reducers: {
@@ -44,15 +44,16 @@ const cartSlice = createSlice({
     },
     cartLoaded: (state, action) => {
       state.isLoading = false; //cart has loaded
-      state.items = action.payload; // set items = that items returned by api
+      state.cart = action.payload; // set items = that items returned by api
     },
     addItem: (state, action) => {
       state.quantity += 1;
-      state.items.push(action.payload);
+      state.cart.push(action.payload);
       state.billAmount += 500;
     },
     addedToCart: (state, action) => {
-      state.cart = action.payload;
+      const user = action.payload;
+      state.cart = user.user.cart;
     },
     deletedItemCart: (state, action) => {
       state.isLoading = true;

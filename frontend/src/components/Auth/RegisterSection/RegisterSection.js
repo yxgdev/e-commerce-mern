@@ -30,7 +30,6 @@ const RegisterSection = () => {
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData);
   };
 
   const onSubmit = (e) => {
