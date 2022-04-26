@@ -45,7 +45,6 @@ const addItemToCart = async (req, res) => {
       user.cart.push({ productId, title: name, quantity: 1, price });
     }
     user = await user.save();
-    console.log(user);
     return res.status(201).json({
       user: {
         id: user._id,
@@ -90,4 +89,44 @@ const deleteItemInCart = async (req, res) => {
   }
 };
 
-module.exports = { getCartItems, addItemToCart, deleteItemInCart };
+const updateItemInCart = async (req, res) => {
+  const userId = req.params.userId;
+  const productId = req.params.itemId;
+  const quantity = req.body.quantity;
+
+  try {
+    let user = await User.findOne({ _id: userId });
+    let item = await Item.findOne({ productId: productId });
+
+    if (!item) res.status(404).send("item not found");
+
+    // check if item exist in cart
+    let itemIndex = user.cart.findIndex((p) => p.productId == productId);
+
+    // check if item exist in cart
+    if (itemIndex > -1) {
+      // item exist in cart
+      let productItem = user.cart[itemIndex];
+      productItem.quantity = quantity;
+      user.cart[itemIndex] = productItem;
+    }
+
+    user = await user.save();
+    return res.status(201).json({
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        cart: user.cart,
+      },
+    });
+  } catch (error) {
+    console.log("update item cart error");
+  }
+};
+module.exports = {
+  getCartItems,
+  addItemToCart,
+  deleteItemInCart,
+  updateItemInCart,
+};

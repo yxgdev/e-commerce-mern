@@ -18,15 +18,17 @@ import {
 import iPhone from "../../../images/iphone-13-pro-family-hero.png";
 import { items } from "../../ItemsList/itemsInItemsList";
 import { useDispatch } from "react-redux";
-import { deleteItemFromCart } from "../../../redux/authSlice";
+import { deleteItemFromCart, updateItemInCart } from "../../../redux/authSlice";
 
 const CartItem = ({ item, user }) => {
   const currentItem = items.find((i) => i.id == item.productId);
   const itemPicture = currentItem.image;
-  const onChange = (e) => {
-    // console.log(e.target.name, e.target.value);
-  };
   const dispatch = useDispatch();
+
+  const onChange = (e, userId, productId) => {
+    const quantity = parseInt(e.target.value);
+    updateItemInCart(dispatch, userId, productId, e.target.value, quantity);
+  };
 
   const onRemove = (userId, productId) => {
     deleteItemFromCart(dispatch, userId, productId);
@@ -46,7 +48,9 @@ const CartItem = ({ item, user }) => {
         <ItemQuantityTitle>Quantity</ItemQuantityTitle>
         <ItemQuantitySelect
           name="quantity"
-          onChange={onChange}
+          onChange={(e) => {
+            onChange(e, user.id, item.productId);
+          }}
           defaultValue={item.quantity}
         >
           <ItemQuantityOption>1</ItemQuantityOption>

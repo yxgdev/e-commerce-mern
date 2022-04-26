@@ -70,6 +70,13 @@ export const deleteItemFromCart = async (dispatch, userId, itemId) => {
     dispatch(deletedItemCart(res.data));
   } catch (error) {}
 };
+
+export const updateItemInCart = async (dispatch, userId, itemId, quantity) => {
+  try {
+    const res = await axios.patch(`/cart/${userId}/${itemId}`, { quantity });
+    dispatch(updatedItemCart(res.data));
+  } catch (error) {}
+};
 export const tokenConfig = (getState) => {
   //Get token from local storage
   const token = getState().auth.token;
@@ -142,6 +149,10 @@ const authAndCart = createSlice({
       const user = action.payload;
       state.user = user.user;
     },
+    updatedItemCart: (state, action) => {
+      const user = action.payload;
+      state.user = user.user;
+    },
   },
 });
 
@@ -152,6 +163,7 @@ export const {
   logout,
   addedToCart,
   deletedItemCart,
+  updatedItemCart,
   registerSuccess,
   authError,
 } = authAndCart.actions;

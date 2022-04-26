@@ -31,7 +31,7 @@ const ProductItem = ({ item }) => {
             <ItemImage src={item.image} />
           </ItemImageContainer>
           <ItemDesc>
-            <ItemDescTitle>{item.id}</ItemDescTitle>
+            <ItemDescTitle>{item.title}</ItemDescTitle>
             <ItemDescParagraph>{item.desc}</ItemDescParagraph>
             <AddToCartButton
               onClick={() => {
