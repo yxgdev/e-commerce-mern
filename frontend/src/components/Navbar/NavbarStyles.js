@@ -18,10 +18,6 @@ export const Left = styled.div`
 `;
 export const Mid = styled.div`
   flex: 1;
-  @media ${breakpoint.device.sm} {
-    flex: 0;
-    display: none;
-  }
 `;
 export const Right = styled.div`
   min-height: 100%;
@@ -47,6 +43,9 @@ export const SearchContainer = styled.div`
 export const SearchBar = styled.input`
   padding: 10px;
   width: 90%;
+  @media ${breakpoint.device.sm} {
+    width: 70%;
+  }
 `;
 
 export const SearchBarForm = styled.form`

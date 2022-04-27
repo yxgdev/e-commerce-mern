@@ -6,8 +6,11 @@ export const CartItemContainer = styled.div`
   background-color: white;
   align-items: center;
   min-height: 25vh;
+  max-height: 25vh;
+
   @media ${breakpoint.device.sm} {
     flex-direction: column;
+    max-height: 100vh;
   }
 `;
 export const ItemPicContainer = styled.div`

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoint from "../../breakpoints";
 
 export const Container = styled.div`
   /* background-color: darkred; */
@@ -7,12 +8,23 @@ export const Container = styled.div`
   min-height: 27vh;
   max-height: 27vh;
   align-items: center;
+  @media ${breakpoint.device.sm} {
+    flex-direction: column;
+    max-height: 100vh;
+    margin-bottom: 5px;
+  }
 `;
 
 //ItemPic
 export const ItemPicContainer = styled.div`
   width: 25%;
   margin-left: 250px;
+  @media ${breakpoint.device.sm} {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
 `;
 export const ItemPic = styled.img`
   max-width: 200px;
@@ -24,6 +36,13 @@ export const ItemNameContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  @media ${breakpoint.device.sm} {
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 12px;
+  }
 `;
 export const ItemNameHeading = styled.h4``;
 export const ItemName = styled.h1``;
@@ -34,6 +53,13 @@ export const ItemPriceContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  @media ${breakpoint.device.sm} {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    font-size: 12px;
+  }
 `;
 export const ItemPriceHeading = styled.h4``;
 export const ItemPrice = styled.h1``;

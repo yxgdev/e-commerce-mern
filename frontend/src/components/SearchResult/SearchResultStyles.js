@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoint from "../breakpoints";
 
 export const Container = styled.div`
   min-height: 75vh;
