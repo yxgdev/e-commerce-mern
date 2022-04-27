@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Brand,
   BrandName,
@@ -14,6 +14,7 @@ import {
   SearchContainer,
   SearchIconContainer,
   Wrapper,
+  SearchBarForm,
   DropDownLink,
   ShoppingCartCount,
   ShoppingCartContainer,
@@ -23,7 +24,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/authSlice";
 
@@ -32,6 +33,18 @@ const Navbar = () => {
   const { token, isAuthenticated, isLoading, user } = auth;
 
   const dispatch = useDispatch();
+  let navigate = useNavigate();
+
+  const [searchData, setSearchData] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    navigate("/search", { state: searchData });
+  };
+
+  const onChangeSearch = (e) => {
+    setSearchData(e.target.value);
+  };
 
   return (
     <>
@@ -45,7 +58,18 @@ const Navbar = () => {
         </Left>
         <Mid>
           <SearchContainer>
-            <SearchBar placeholder="Search Items ... " />
+            <SearchBarForm
+              onSubmit={(e) => {
+                onSubmit(e);
+              }}
+            >
+              <SearchBar
+                onChange={(e) => {
+                  onChangeSearch(e);
+                }}
+                placeholder="Search Items ... "
+              />
+            </SearchBarForm>
             <SearchIconContainer>
               <SearchIcon />
             </SearchIconContainer>

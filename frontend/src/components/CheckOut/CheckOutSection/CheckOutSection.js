@@ -49,24 +49,24 @@ const CheckOutSection = ({ cart, user }) => {
 
           <OrderSummaryChildContainer>
             <OrderSummaryChildText>SubTotal </OrderSummaryChildText>
-            <OrderSummaryChildPrice>RM {total}</OrderSummaryChildPrice>
+            <OrderSummaryChildPrice>RM {total}.00</OrderSummaryChildPrice>
           </OrderSummaryChildContainer>
 
           <OrderSummaryChildContainer>
             <OrderSummaryChildText>Shipping Fee Total</OrderSummaryChildText>
-            <OrderSummaryChildPrice>RM 20</OrderSummaryChildPrice>
+            <OrderSummaryChildPrice>RM 20.00</OrderSummaryChildPrice>
           </OrderSummaryChildContainer>
 
           <OrderSummaryChildContainer>
             <OrderSummaryChildText>
               Shipping Fee Discounted
             </OrderSummaryChildText>
-            <OrderSummaryChildPrice>- RM 20</OrderSummaryChildPrice>
+            <OrderSummaryChildPrice>- RM 20.00</OrderSummaryChildPrice>
           </OrderSummaryChildContainer>
 
           <OrderSummaryChildContainer>
             <OrderSummaryTotal>Total</OrderSummaryTotal>
-            <OrderSummaryTotalPrice>RM {total}</OrderSummaryTotalPrice>
+            <OrderSummaryTotalPrice>RM {total}.00</OrderSummaryTotalPrice>
           </OrderSummaryChildContainer>
 
           <CheckOutButton onClick={onClick}>CHECKOUT</CheckOutButton>

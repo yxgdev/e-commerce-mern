@@ -9,11 +9,13 @@ import {
   Wrapper,
 } from "./SearchResultStyles";
 
-const SearchResult = ({ items }) => {
+const SearchResult = ({ items, keyword }) => {
   return (
     <Container>
       <SearchResultText>Search Results</SearchResultText>
-      <SearchKeyWordText>You Searched for ' '</SearchKeyWordText>
+      <SearchKeyWordText>
+        You Searched for '{keyword ? keyword : "all"}'
+      </SearchKeyWordText>
       <Wrapper>
         {items.map((item) => (
           <SearchItem key={item.id} item={item} />

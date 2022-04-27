@@ -38,6 +38,10 @@ export const SearchContainer = styled.div`
 `;
 export const SearchBar = styled.input`
   padding: 10px;
+  width: 90%;
+`;
+
+export const SearchBarForm = styled.form`
   width: 70%;
   margin-right: 5px;
   margin-left: 60px;
