@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import breakpoint from "../../breakpoints";
 
 export const MainWrapper = styled.div`
   min-height: 75vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,9 +17,15 @@ export const CheckoutContainer = styled.div`
   min-height: 75vh;
   width: 90%;
   margin-bottom: 30px;
+  @media ${breakpoint.device.sm} {
+    flex-direction: column;
+  }
 `;
 export const CartItemsList = styled.div`
   width: 70%;
+  @media ${breakpoint.device.sm} {
+    width: 100%;
+  }
 `;
 export const OrderSummarySection = styled.div`
   width: 30%;
@@ -25,6 +33,9 @@ export const OrderSummarySection = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 30px;
+  @media ${breakpoint.device.sm} {
+    width: 85%;
+  }
 `;
 export const OrderSummaryTitle = styled.h2`
   margin-bottom: 20px;
@@ -36,7 +47,11 @@ export const OrderSummaryChildContainer = styled.div`
   justify-content: space-between;
   margin-bottom: 20px;
 `;
-export const OrderSummaryChildText = styled.h3``;
+export const OrderSummaryChildText = styled.h3`
+  @media ${breakpoint.device.sm} {
+    font-size: 15px;
+  }
+`;
 export const OrderSummaryChildPrice = styled.h3`
   font-weight: normal;
 `;
