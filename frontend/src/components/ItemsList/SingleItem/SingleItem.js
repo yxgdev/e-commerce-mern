@@ -44,7 +44,7 @@ const SingleItem = ({ id, title, image, price }) => {
         <Snackbar
           open={open}
           autoHideDuration={2000}
-          message="item added to cart"
+          message="Item added to Cart"
           onClose={() => setOpen(false)}
         />
       </SingleItemContainer>

@@ -46,7 +46,7 @@ const ProductItem = ({ item }) => {
             <Snackbar
               open={open}
               autoHideDuration={2000}
-              message="item added to cart"
+              message="Item added to Cart"
               onClose={() => setOpen(false)}
             />
           </ItemDesc>

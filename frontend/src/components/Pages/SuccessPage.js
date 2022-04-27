@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearCartAndUrlSuccess } from "../../redux/authSlice";
 import Footer from "../Categories/Footer/Footer";
 import Navbar from "../Navbar/Navbar";
+import Success from "../Success/Success";
 
 const SuccessPage = () => {
   const { user } = useSelector((state) => state.auth);
@@ -15,7 +16,7 @@ const SuccessPage = () => {
   return (
     <div>
       <Navbar />
-      <div>success</div>
+      <Success />
       <Footer />
     </div>
   );
