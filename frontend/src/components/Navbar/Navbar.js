@@ -45,7 +45,7 @@ const Navbar = () => {
         </Left>
         <Mid>
           <SearchContainer>
-            <SearchBar />
+            <SearchBar placeholder="Search Items ... " />
             <SearchIconContainer>
               <SearchIcon />
             </SearchIconContainer>

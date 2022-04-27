@@ -14,6 +14,7 @@ import Slider from "./components/Slider/Slider";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SuccessPage from "./components/Pages/SuccessPage";
 import FailurePage from "./components/Pages/FailurePage";
+import SearchResultPage from "./components/Pages/SearchResultPage";
 function App() {
   return (
     <BrowserRouter>
@@ -26,6 +27,7 @@ function App() {
         <Route path="/checkout" element={<CheckOutPage />} />
         <Route path="/success" element={<SuccessPage />} />
         <Route path="/failure" element={<FailurePage />} />
+        <Route path="/search" element={<SearchResultPage />} />
 
         {/* <HomePage /> */}
         {/* <ProductPage /> */}
