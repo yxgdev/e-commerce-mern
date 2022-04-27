@@ -1,4 +1,5 @@
-import React from "react";
+import { Snackbar } from "@mui/material";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../../redux/authSlice";
@@ -21,10 +22,12 @@ const SingleItem = ({ id, title, image, price }) => {
 
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
 
   const onAdd = (productId) => {
     addToCart(dispatch, productId, auth.user);
-    alert("Item added to cart" + productId);
+    // alert("Item added to cart" + productId);
+    setOpen(true);
   };
   return (
     <div>
@@ -38,6 +41,12 @@ const SingleItem = ({ id, title, image, price }) => {
         <ItemClickAddCard onClick={() => onAdd(id)}>
           ADD TO CART
         </ItemClickAddCard>
+        <Snackbar
+          open={open}
+          autoHideDuration={2000}
+          message="item added to cart"
+          onClose={() => setOpen(false)}
+        />
       </SingleItemContainer>
     </div>
   );

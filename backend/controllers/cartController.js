@@ -81,8 +81,6 @@ const deleteItemInCart = async (req, res) => {
 
     user = await user.save();
 
-    console.log(user);
-
     return res.status(201).json({
       user: {
         id: user._id,
@@ -134,7 +132,6 @@ const updateItemInCart = async (req, res) => {
 
 // (change in production)
 const checkOut = async (req, res) => {
-  console.log(process.env.STRIPE_PRIVATE_KEY);
   const user = req.body;
 
   const items = user.cart;
@@ -145,7 +142,6 @@ const checkOut = async (req, res) => {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: items.map((item) => {
-        console.log(item);
         return {
           price_data: {
             currency: "myr",
@@ -158,8 +154,8 @@ const checkOut = async (req, res) => {
         };
       }),
       mode: "payment",
-      success_url: "http://localhost:3000",
-      cancel_url: "http://localhost:3000",
+      success_url: "http://localhost:3000/success",
+      cancel_url: "http://localhost:3000/failure",
     });
 
     res.json({ url: session.url });
@@ -168,10 +164,32 @@ const checkOut = async (req, res) => {
   }
 };
 
+const clearCart = async (req, res) => {
+  const userObj = req.body;
+
+  try {
+    let user = await User.findOne({ _id: userObj.id });
+    // clear cart
+    user.cart = [];
+    user = await user.save();
+    return res.status(201).json({
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        cart: user.cart,
+      },
+    });
+  } catch (error) {
+    console.log("checkOutSuccessLogic error");
+  }
+};
+
 module.exports = {
   getCartItems,
   addItemToCart,
   deleteItemInCart,
   updateItemInCart,
+  clearCart,
   checkOut,
 };

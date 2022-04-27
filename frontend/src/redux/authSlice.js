@@ -88,6 +88,15 @@ export const checkOutStripe = async (dispatch, user) => {
   }
 };
 
+export const clearCartAndUrlSuccess = async (dispatch, user) => {
+  try {
+    const res = await axios.patch("/cart/clear", user);
+    dispatch(checkOutSuccess(res.data));
+  } catch (error) {
+    console.log("clear cart and url success error");
+  }
+};
+
 export const tokenConfig = (getState) => {
   //Get token from local storage
   const token = getState().auth.token;
@@ -169,6 +178,15 @@ const authAndCart = createSlice({
     checkOut: (state, action) => {
       state.checkOutUrl = action.payload.url;
     },
+    checkOutSuccess: (state, action) => {
+      // clear  url
+      state.checkOutUrl = null;
+      const user = action.payload;
+      state.user = user.user;
+    },
+    checkOutFail: (state, action) => {
+      state.checkOutUrl = null;
+    },
   },
 });
 
@@ -181,6 +199,8 @@ export const {
   deletedItemCart,
   updatedItemCart,
   registerSuccess,
+  checkOutSuccess,
+  checkOutFail,
   checkOut,
   authError,
 } = authAndCart.actions;

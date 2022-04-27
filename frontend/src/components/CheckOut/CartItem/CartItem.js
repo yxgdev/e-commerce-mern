@@ -62,7 +62,7 @@ const CartItem = ({ item, user }) => {
       </ItemQuantityContainer>
 
       <ItemPriceAndRemoveContainer>
-        <ItemPrice>${item.price * item.quantity}</ItemPrice>
+        <ItemPrice>RM {item.price * item.quantity}</ItemPrice>
         <ItemRemoveButton onClick={() => onRemove(user.id, item.productId)}>
           REMOVE
         </ItemRemoveButton>

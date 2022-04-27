@@ -14,7 +14,7 @@ const CheckOutPage = () => {
     if (!auth.isAuthenticated) navigate("/login");
 
     if (auth.checkOutUrl) window.location.replace(auth.checkOutUrl);
-  }, []);
+  }, [auth]);
   return (
     <div>
       <Navbar />

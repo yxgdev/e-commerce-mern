@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AddToCartButton,
   ComponentContainer,
@@ -14,14 +14,17 @@ import {
 import iPhone from "../../images/iphone-13-pro-family-hero.png";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/authSlice";
+import { Snackbar } from "@mui/material";
 
 const ProductItem = ({ item }) => {
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
 
   const onAdd = (productId) => {
     addToCart(dispatch, productId, auth.user);
-    alert("Item added to cart" + productId);
+    // alert("Item added to cart" + productId);
+    setOpen(true);
   };
   return (
     <ComponentContainer>
@@ -40,6 +43,12 @@ const ProductItem = ({ item }) => {
             >
               Add to Cart
             </AddToCartButton>
+            <Snackbar
+              open={open}
+              autoHideDuration={2000}
+              message="item added to cart"
+              onClose={() => setOpen(false)}
+            />
           </ItemDesc>
         </ItemContainer>
       </Wrapper>
