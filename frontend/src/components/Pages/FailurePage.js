@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { checkOutFail } from "../../redux/authSlice";
 import Footer from "../Categories/Footer/Footer";
 import Navbar from "../Navbar/Navbar";
+import Failure from "../Success/Failure";
 
 const FailurePage = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const FailurePage = () => {
   return (
     <div>
       <Navbar />
-      <div>Failure</div>
+      <Failure />
       <Footer />
     </div>
   );
