@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import breakpoint from "../breakpoints";
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -7,6 +7,9 @@ export const Wrapper = styled.div`
   text-align: center;
   margin: 0px 50px;
   padding: 15px;
+  @media ${breakpoint.device.sm} {
+    flex-direction: column;
+  }
 `;
 
 export const Left = styled.div`
@@ -14,6 +17,10 @@ export const Left = styled.div`
 `;
 export const Mid = styled.div`
   flex: 1;
+  @media ${breakpoint.device.sm} {
+    flex: 0;
+    display: none;
+  }
 `;
 export const Right = styled.div`
   min-height: 100%;

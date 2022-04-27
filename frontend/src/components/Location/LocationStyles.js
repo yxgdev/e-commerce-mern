@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoint from "../breakpoints";
 import KL from "./images/beautiful_kl_unsplash.jpg";
 
 export const LocationContainer = styled.div`
@@ -17,9 +18,15 @@ export const LocationContainer = styled.div`
 export const LocationTitle = styled.h1`
   font-size: 50px;
   font-weight: 900;
+  @media ${breakpoint.device.sm} {
+    font-size: 30px;
+  }
 `;
 
 export const LocationDesc = styled.p`
   margin-top: 5px;
   font-size: 20px;
+  @media ${breakpoint.device.sm} {
+    font-size: 15px;
+  }
 `;

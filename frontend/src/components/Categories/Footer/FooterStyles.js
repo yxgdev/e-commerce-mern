@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoint from "../../breakpoints";
 
 export const FooterContainer = styled.div`
   max-width: 100vw;
@@ -9,10 +10,16 @@ export const FooterContainer = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
+  @media ${breakpoint.device.sm} {
+    height: 30vh;
+  }
 `;
 
 export const SocialsContainer = styled.div`
   display: flex;
+  @media ${breakpoint.device.sm} {
+    margin-top: 30px;
+  }
 `;
 export const IconContainer = styled.div`
   margin: 0 40px;

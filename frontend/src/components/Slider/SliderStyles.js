@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoint from "../breakpoints";
 
 export const Wrapper = styled.div`
   overflow: hidden;
@@ -49,6 +50,9 @@ export const InfoContainer = styled.div`
 
 export const InfoTitle = styled.h1`
   margin-bottom: 10px;
+  @media ${breakpoint.device.sm} {
+    font-size: 20px;
+  }
 `;
 
 export const InfoButton = styled.button`
@@ -76,6 +80,10 @@ export const SliderSwitchLeft = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  @media ${breakpoint.device.sm} {
+    height: 45px;
+    width: 45px;
+  }
 `;
 export const SliderSwitchRight = styled.div`
   border-radius: 50%;
@@ -91,4 +99,8 @@ export const SliderSwitchRight = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  @media ${breakpoint.device.sm} {
+    height: 45px;
+    width: 45px;
+  }
 `;
