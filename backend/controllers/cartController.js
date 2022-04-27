@@ -2,6 +2,12 @@ const Cart = require("../models/Cart");
 const Item = require("../models/Item");
 const User = require("../models/User");
 
+const dotenv = require("dotenv");
+
+dotenv.config();
+// stripe import
+const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
+
 const getCartItems = async (req, res) => {
   // get user id from parameter in url
   const userId = req.params.id;
@@ -125,9 +131,47 @@ const updateItemInCart = async (req, res) => {
     console.log("update item cart error");
   }
 };
+
+// (change in production)
+const checkOut = async (req, res) => {
+  console.log(process.env.STRIPE_PRIVATE_KEY);
+  const user = req.body;
+
+  const items = user.cart;
+
+  const email = user.email;
+
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      line_items: items.map((item) => {
+        console.log(item);
+        return {
+          price_data: {
+            currency: "usd",
+            product_data: {
+              name: item.title,
+            },
+            unit_amount: item.price * 100,
+          },
+          quantity: item.quantity,
+        };
+      }),
+      mode: "payment",
+      success_url: "http://localhost:3000",
+      cancel_url: "http://localhost:3000",
+    });
+
+    res.json({ url: session.url });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 module.exports = {
   getCartItems,
   addItemToCart,
   deleteItemInCart,
   updateItemInCart,
+  checkOut,
 };

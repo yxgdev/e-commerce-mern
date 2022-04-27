@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { checkOutStripe } from "../../../redux/authSlice";
 import CartItem from "../CartItem/CartItem";
 import {
   CartItemsList,
@@ -21,6 +23,11 @@ const CheckOutSection = ({ cart, user }) => {
         return acc + item.price * item.quantity;
       }, 0)
     : 0;
+
+  const dispatch = useDispatch();
+  const onClick = () => {
+    checkOutStripe(dispatch, user);
+  };
   return (
     <MainWrapper>
       <CheckOutTitle>YOUR CART</CheckOutTitle>
@@ -62,7 +69,7 @@ const CheckOutSection = ({ cart, user }) => {
             <OrderSummaryTotalPrice>${total}</OrderSummaryTotalPrice>
           </OrderSummaryChildContainer>
 
-          <CheckOutButton>CHECKOUT</CheckOutButton>
+          <CheckOutButton onClick={onClick}>CHECKOUT</CheckOutButton>
         </OrderSummarySection>
       </CheckoutContainer>
     </MainWrapper>

@@ -77,6 +77,17 @@ export const updateItemInCart = async (dispatch, userId, itemId, quantity) => {
     dispatch(updatedItemCart(res.data));
   } catch (error) {}
 };
+
+// checkout stripe
+export const checkOutStripe = async (dispatch, user) => {
+  try {
+    const res = await axios.post("/cart/checkout", user);
+    dispatch(checkOut(res.data));
+  } catch (error) {
+    console.log("check out strip eeror");
+  }
+};
+
 export const tokenConfig = (getState) => {
   //Get token from local storage
   const token = getState().auth.token;
@@ -103,6 +114,8 @@ const authAndCart = createSlice({
     isLoading: false,
     user: null,
     billAmount: 0,
+    checkOutUrl: null,
+    checkOutSuccess: null,
   },
   reducers: {
     userLoading: (state, action) => {
@@ -153,6 +166,9 @@ const authAndCart = createSlice({
       const user = action.payload;
       state.user = user.user;
     },
+    checkOut: (state, action) => {
+      state.checkOutUrl = action.payload.url;
+    },
   },
 });
 
@@ -165,6 +181,7 @@ export const {
   deletedItemCart,
   updatedItemCart,
   registerSuccess,
+  checkOut,
   authError,
 } = authAndCart.actions;
 export default authAndCart.reducer;

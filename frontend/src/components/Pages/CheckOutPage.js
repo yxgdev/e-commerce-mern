@@ -12,6 +12,8 @@ const CheckOutPage = () => {
 
   useEffect(() => {
     if (!auth.isAuthenticated) navigate("/login");
+
+    if (auth.checkOutUrl) window.location.replace(auth.checkOutUrl);
   }, []);
   return (
     <div>
