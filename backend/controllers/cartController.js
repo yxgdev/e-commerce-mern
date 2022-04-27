@@ -36,6 +36,7 @@ const addItemToCart = async (req, res) => {
     if (itemIndex > -1) {
       // item exist in cart
       let productItem = user.cart[itemIndex];
+
       if (productItem.quantity < 5) {
         productItem.quantity = productItem.quantity + 1;
       }
@@ -92,7 +93,7 @@ const deleteItemInCart = async (req, res) => {
 const updateItemInCart = async (req, res) => {
   const userId = req.params.userId;
   const productId = req.params.itemId;
-  const quantity = req.body.quantity;
+  const quantity = parseInt(req.body.quantity);
 
   try {
     let user = await User.findOne({ _id: userId });
