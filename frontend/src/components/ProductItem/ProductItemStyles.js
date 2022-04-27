@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import breakpoint from "../breakpoints";
+
 export const ComponentContainer = styled.div`
   height: 80vh;
   display: flex;
@@ -13,14 +15,25 @@ export const ItemContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media ${breakpoint.device.sm} {
+    flex-direction: column;
+  }
 `;
 
 export const ItemImageContainer = styled.div`
   width: 30vw;
+  @media ${breakpoint.device.sm} {
+    width: 50vw;
+  }
 `;
 export const ItemImage = styled.img`
   margin-left: 15vw;
   width: 25vw;
+  @media ${breakpoint.device.sm} {
+    flex-direction: column;
+    margin-left: 0;
+    width: 50vw;
+  }
 `;
 
 export const ItemDesc = styled.div`
