@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoint from "../../breakpoints";
 import KL from "./images/beautiful_kl_unsplash.jpg";
 
 export const MainWrapper = styled.div`
@@ -14,6 +15,9 @@ export const MainWrapper = styled.div`
 export const FormContainer = styled.div`
   height: 70%;
   width: 30%;
+  @media ${breakpoint.device.sm} {
+    width: 90%;
+  }
 `;
 
 export const Form = styled.form`
