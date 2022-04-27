@@ -32,7 +32,7 @@ const SingleItem = ({ id, title, image, price }) => {
         <ItemImage src={image}></ItemImage>
         <ItemPriceNameContainer>
           <ItemName>{title}</ItemName>
-          <ItemPrice>${price}</ItemPrice>
+          <ItemPrice>RM {price}</ItemPrice>
         </ItemPriceNameContainer>
         <ItemClickView onClick={onViewClick}>VIEW</ItemClickView>
         <ItemClickAddCard onClick={() => onAdd(id)}>

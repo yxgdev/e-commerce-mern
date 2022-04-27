@@ -12,6 +12,8 @@ import RegisterPage from "./components/Pages/RegisterPage";
 import Slider from "./components/Slider/Slider";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SuccessPage from "./components/Pages/SuccessPage";
+import FailurePage from "./components/Pages/FailurePage";
 function App() {
   return (
     <BrowserRouter>
@@ -22,6 +24,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/checkout" element={<CheckOutPage />} />
+        <Route path="/success" element={<SuccessPage />} />
+        <Route path="/failure" element={<FailurePage />} />
 
         {/* <HomePage /> */}
         {/* <ProductPage /> */}

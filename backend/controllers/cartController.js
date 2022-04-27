@@ -148,7 +148,7 @@ const checkOut = async (req, res) => {
         console.log(item);
         return {
           price_data: {
-            currency: "usd",
+            currency: "myr",
             product_data: {
               name: item.title,
             },
