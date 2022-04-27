@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoint from "../../breakpoints";
 
 export const SingleItemContainer = styled.div`
   display: flex;
@@ -9,6 +10,10 @@ export const SingleItemContainer = styled.div`
   height: 350px;
   border: 1px solid black;
   padding: 20px;
+  @media ${breakpoint.device.sm} {
+    width: 300px;
+    height: 300px;
+  }
 `;
 export const ItemImage = styled.img`
   max-width: 200px;

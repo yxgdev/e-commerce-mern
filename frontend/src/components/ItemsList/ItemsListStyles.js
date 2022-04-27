@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoint from "../breakpoints";
 
 export const ItemsListContainer = styled.div`
   min-height: 70vh;
@@ -13,4 +14,7 @@ export const ItemsContainerGrid = styled.div`
   row-gap: 50px;
   grid-template-columns: repeat(3, 1fr);
   padding: 50px;
+  @media ${breakpoint.device.sm} {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;

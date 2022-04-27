@@ -2,6 +2,7 @@ import styled from "styled-components";
 import breakpoint from "../breakpoints";
 export const Wrapper = styled.div`
   display: flex;
+
   justify-content: center;
   align-items: center;
   text-align: center;
